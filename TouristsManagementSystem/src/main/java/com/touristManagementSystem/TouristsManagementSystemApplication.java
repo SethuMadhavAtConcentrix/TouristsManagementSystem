@@ -1,4 +1,4 @@
-package com.touristManagementSystem.demo;
+package com.touristManagementSystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

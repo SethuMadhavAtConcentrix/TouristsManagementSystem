@@ -1,24 +1,49 @@
 package com.touristManagementSystem.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.*;
+import javax.persistence.*;
 
 @Entity
+@Table(name="tourist_master")
 public class TouristMaster {
-	@Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name="tourist_id",nullable=true)
 	private int touristId;
+    
+    @Column(name="tourist_name",nullable=true)
 	private String touristName;
+    
+    @Column(name="address",nullable=true)
 	private String address;
+    
+    @Column(name="tour_date",nullable=true)
 	private String tourDate;
+    
+    @Column(name="booking_amount",nullable=true)
 	private float bookingAmount;
-	
+    
+    @OneToMany(mappedBy = "touristMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<TouristContact> phoneNumbers = new ArrayList<>();
+    
+    public void addPhoneNumbers(TouristContact touristContact){
+    	phoneNumbers.add(touristContact);
+    }
+    
+    public List<TouristContact> getPhoneNumbers() {
+		return phoneNumbers;
+	}
+
+	public void setPhoneNumbers(List<TouristContact> phoneNumbers) {
+		this.phoneNumbers = phoneNumbers;
+	}
+
 	public TouristMaster() {
 		super();
 	}
 
 	public TouristMaster(int touristId, String touristName, String address, String tourDate, float bookingAmount) {
 		super();
-		this.touristId = touristId;
 		this.touristName = touristName;
 		this.address = address;
 		this.tourDate = tourDate;

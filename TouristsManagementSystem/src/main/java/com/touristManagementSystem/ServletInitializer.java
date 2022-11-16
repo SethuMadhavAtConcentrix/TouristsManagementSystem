@@ -1,4 +1,4 @@
-package com.touristManagementSystem.demo;
+package com.touristManagementSystem;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
