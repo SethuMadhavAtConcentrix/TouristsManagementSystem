@@ -7,7 +7,8 @@ import javax.persistence.*;
 @Table(name="tourist_master")
 public class TouristMaster {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(generator="sequence",strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="sequence",initialValue=1,allocationSize=1)
     @Column(name="tourist_id",nullable=true)
 	private int touristId;
     
@@ -43,7 +44,7 @@ public class TouristMaster {
 		super();
 	}
 
-	public TouristMaster(int touristId, String touristName, String address, String tourDate, float bookingAmount) {
+	public TouristMaster(String touristName, String address, String tourDate, float bookingAmount) {
 		super();
 		this.touristName = touristName;
 		this.address = address;

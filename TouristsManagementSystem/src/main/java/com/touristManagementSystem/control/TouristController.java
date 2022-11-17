@@ -28,24 +28,25 @@ public class TouristController {
 	@Autowired
 	ContactService contactService;
 
-	TouristMaster touristMaster = new TouristMaster();
-
 	@GetMapping(value = "/index")
-	public ModelAndView addNewTourist(Model model) {
+	public ModelAndView addNewTourist() {
 		ModelAndView mv = new ModelAndView("AddNewTourist");
 		return mv;
 	}
 
-	@PostMapping("/save")
-	public ModelAndView saveTourist(@RequestParam("touristId") Integer touristId,
-			@RequestParam("touristName") String touristName, @RequestParam("address") String address,
-			@RequestParam("tourDate") String tourDate, @RequestParam("bookingAmount") Float bookingAmount,
-			@RequestParam("phoneNumber1") String phoneNumber1, @RequestParam("phoneNumber2") String phoneNumber2,
-			@RequestParam("phoneNumber3") String phoneNumber3) {
+	@PostMapping("/saveTourist")
+	public ModelAndView saveTourist(@RequestParam("touristName") String touristName,
+			@RequestParam("address") String address, @RequestParam("tourDate") String tourDate,
+			@RequestParam("bookingAmount") Float bookingAmount, @RequestParam("phoneNumber1") String phoneNumber1,
+			@RequestParam("phoneNumber2") String phoneNumber2, @RequestParam("phoneNumber3") String phoneNumber3) {
 		ModelAndView mv = new ModelAndView("TouristDetails");
+
+		TouristMaster touristMaster = new TouristMaster();
 		TouristContact touristContact = new TouristContact();
-		
-		touristMaster.setTouristId(touristId);
+		TouristContact touristContact2 = new TouristContact();
+		TouristContact touristContact3 = new TouristContact();
+
+		System.out.println(touristMaster.getTouristId());
 		touristMaster.setTouristName(touristName);
 		touristMaster.setAddress(address);
 		touristMaster.setTourDate(tourDate);
@@ -54,22 +55,26 @@ public class TouristController {
 		touristMaster.addPhoneNumbers(touristContact);
 
 		if (!phoneNumber2.equals("0")) {
-			TouristContact touristContact2 = new TouristContact();
 			touristContact2.setContactNumber(phoneNumber2);
 			touristContact2.setTouristMaster(touristMaster);
 			touristMaster.addPhoneNumbers(touristContact2);
-			System.out.println(phoneNumber2);
 		}
 		if (!phoneNumber3.equals("0")) {
-			TouristContact touristContact3 = new TouristContact();
+
 			touristContact3.setContactNumber(phoneNumber3);
 			touristContact3.setTouristMaster(touristMaster);
 			touristMaster.addPhoneNumbers(touristContact3);
-			System.out.println(phoneNumber3);
 		}
 
 		touristService.saveData(touristMaster);
-		mv.addObject("tourist",touristMaster);
+		contactService.addContactNumber(touristContact);
+		contactService.addContactNumber(touristContact2);
+		contactService.addContactNumber(touristContact3);
+		
+		mv.addObject("touristContact", touristContact);
+		mv.addObject("touristContact2", touristContact2);
+		mv.addObject("touristContact3", touristContact3);
+		mv.addObject("tourist", touristMaster);
 		return mv;
 	}
 
