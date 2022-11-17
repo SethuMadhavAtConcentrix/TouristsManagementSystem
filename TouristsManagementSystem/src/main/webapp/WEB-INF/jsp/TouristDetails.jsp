@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import = "java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,22 +20,20 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
-<body>
+<body style="text-align:center">
 
-<form action="" method="">
-		Tourist ID: <input type="text" name="touristId" placeholder="teamId" disabled><br>
-		<br> *Enter Tourist Name: <input type="text" name="touristName" placeholder="Name" required><br>
-		<br> *Enter Address: <input type="text" name="address" placeholder="address" required><br>
-		<br> *Enter Tour Date: <input type="text" name="tourDate" placeholder="date of tour" required><br>
-		<br> *Enter Booking Amount Paid: <input type="text" name="bookingAmount" placeholder="Booking Amount Charges" required><br>
-		<br> *Enter 1st Phone Number: <input type="text" name="phoneNum1" placeholder="1st Phone Number" required><br>
-		<br> Enter 2nd Phone Number: <input type="text" name="phoneNum2" placeholder="2nd Phone Number"><br>
-		<br> Enter 3rd Phone Number: <input type="text" name="phoneNum3" placeholder="3rd Phone Number"><br>
-		<br><input type="" name="" value=""><br> 
-		<br> <input type="submit" value="Submit">
+<h1>Tourist Details</h1>
 
+<p>Tourist Id:${tourist.touristId}</p>
+<p>Tourist Name:${tourist.touristName}</p>
+<p>Address:${tourist.address}</p>
+<p>Tour Date:${tourist.tourDate}</p>
+<p>Booking Amount:${tourist.bookingAmount}</p>
+<p>Phone Number1:${tourist.phoneNumber1}</p>
+<p>Phone Number2:${tourist.phoneNumber2}</p>
+<p>Phone Number3:${tourist.phoneNumber3}</p>
 
-	</form>
+<a href="/index">Return</a>
 
 
 </body>

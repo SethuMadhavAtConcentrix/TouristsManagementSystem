@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<scope>provided</scope>
+			<scope>1.2</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

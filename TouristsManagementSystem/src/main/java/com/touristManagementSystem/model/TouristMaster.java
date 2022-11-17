@@ -11,7 +11,7 @@ public class TouristMaster {
     @Column(name="tourist_id",nullable=true)
 	private int touristId;
     
-    @Column(name="tourist_name",nullable=true)
+    @Column(name="tourist_name",nullable=false)
 	private String touristName;
     
     @Column(name="address",nullable=true)
@@ -28,6 +28,7 @@ public class TouristMaster {
     
     public void addPhoneNumbers(TouristContact touristContact){
     	phoneNumbers.add(touristContact);
+    	touristContact.setTouristMaster(this);
     }
     
     public List<TouristContact> getPhoneNumbers() {
@@ -93,7 +94,8 @@ public class TouristMaster {
 	@Override
 	public String toString() {
 		return "TouristMaster [touristId=" + touristId + ", touristName=" + touristName + ", address=" + address
-				+ ", tourDate=" + tourDate + ", bookingAmount=" + bookingAmount + "]";
+				+ ", tourDate=" + tourDate + ", bookingAmount=" + bookingAmount + ", phoneNumbers=" + phoneNumbers
+				+ "]";
 	}
 	
 }

@@ -16,4 +16,4 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
 server:
-  port: 8383
+  port: 9898
