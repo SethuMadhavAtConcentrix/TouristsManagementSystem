@@ -26,6 +26,8 @@
 </head>
 <body style="text-align:center">
 
+
+
 <h2 style="color:blue;font-family:Lucida Sans;">Add New Tourist</h2>
 <p style="text-align:center">* marked items entry is compulsory</p>
 

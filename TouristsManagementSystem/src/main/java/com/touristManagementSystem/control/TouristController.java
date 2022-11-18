@@ -1,16 +1,9 @@
 package com.touristManagementSystem.control;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,7 +40,7 @@ public class TouristController {
 		TouristContact touristContact2 = new TouristContact();
 		TouristContact touristContact3 = new TouristContact();
 
-		System.out.println(touristMaster.getTouristId());
+		//System.out.println(touristMaster.getTouristId());
 		touristMaster.setTouristName(touristName);
 		touristMaster.setAddress(address);
 		touristMaster.setTourDate(tourDate);

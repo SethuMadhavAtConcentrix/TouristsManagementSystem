@@ -16,5 +16,4 @@ public class ContactService {
 	public void addContactNumber(TouristContact touristContact) {
 		contactRepository.save(touristContact);
 	}
-
 }
