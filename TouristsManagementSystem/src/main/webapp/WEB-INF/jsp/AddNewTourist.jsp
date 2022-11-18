@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import = "java.util.*" %>
+<%@ page import="com.touristManagementSystem.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -29,7 +30,6 @@
 <p style="text-align:center">* marked items entry is compulsory</p>
 
 <form action="/saveTourist" method="post" >
-		<!-- Tourist ID: <input type="text" name="touristId" placeholder="touristId" disabled><br>-->
 		<br> *Enter Tourist Name: <input type="text" name="touristName" placeholder="touristName" required><br>
 		<br> *Enter Address: <input type="text" name="address" placeholder="address" required><br>
 		<br> *Enter Tour Date: <input type="text" name="tourDate" placeholder="date of tour" required><br>

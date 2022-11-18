@@ -8,21 +8,21 @@ import javax.persistence.*;
 public class TouristMaster {
     @Id
     @GeneratedValue(generator="sequence",strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="sequence",initialValue=1,allocationSize=1)
-    @Column(name="tourist_id",nullable=true)
-	private int touristId;
+    @SequenceGenerator(name="sequence",initialValue=1000,allocationSize=1)
+    @Column(name="tourist_id")
+	private Integer touristId;
     
-    @Column(name="tourist_name",nullable=false)
+    @Column(name="tourist_name")
 	private String touristName;
     
-    @Column(name="address",nullable=true)
+    @Column(name="address")
 	private String address;
     
-    @Column(name="tour_date",nullable=true)
+    @Column(name="tour_date")
 	private String tourDate;
     
-    @Column(name="booking_amount",nullable=true)
-	private float bookingAmount;
+    @Column(name="booking_amount")
+	private Float bookingAmount;
     
     @OneToMany(mappedBy = "touristMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TouristContact> phoneNumbers = new ArrayList<>();
@@ -44,7 +44,7 @@ public class TouristMaster {
 		super();
 	}
 
-	public TouristMaster(String touristName, String address, String tourDate, float bookingAmount) {
+	public TouristMaster(String touristName, String address, String tourDate, Float bookingAmount) {
 		super();
 		this.touristName = touristName;
 		this.address = address;
@@ -52,11 +52,11 @@ public class TouristMaster {
 		this.bookingAmount = bookingAmount;
 	}
 
-	public int getTouristId() {
+	public Integer getTouristId() {
 		return touristId;
 	}
 
-	public void setTouristId(int touristId) {
+	public void setTouristId(Integer touristId) {
 		this.touristId = touristId;
 	}
 
@@ -84,11 +84,11 @@ public class TouristMaster {
 		this.tourDate = tourDate;
 	}
 
-	public float getBookingAmount() {
+	public Float getBookingAmount() {
 		return bookingAmount;
 	}
 
-	public void setBookingAmount(float bookingAmount) {
+	public void setBookingAmount(Float bookingAmount) {
 		this.bookingAmount = bookingAmount;
 	}
 

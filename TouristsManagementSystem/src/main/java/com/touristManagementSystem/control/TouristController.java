@@ -39,6 +39,7 @@ public class TouristController {
 			@RequestParam("address") String address, @RequestParam("tourDate") String tourDate,
 			@RequestParam("bookingAmount") Float bookingAmount, @RequestParam("phoneNumber1") String phoneNumber1,
 			@RequestParam("phoneNumber2") String phoneNumber2, @RequestParam("phoneNumber3") String phoneNumber3) {
+		
 		ModelAndView mv = new ModelAndView("TouristDetails");
 
 		TouristMaster touristMaster = new TouristMaster();

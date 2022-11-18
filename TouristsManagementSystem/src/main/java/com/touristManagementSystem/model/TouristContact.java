@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class TouristContact {
 	
 	@Id
-    @Column(name="phone_number",nullable=true)
+    @Column(name="phone_number")
 	private String contactNumber;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
